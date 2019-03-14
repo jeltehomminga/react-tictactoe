@@ -5,17 +5,12 @@ class Board extends Component {
   renderSquare(i) {
     return (
       <Square
+        debugger
         value={this.props.squares[i]}
-        renderSquareOnClick={() => this.props.onClick(i)}
+        onClick={()=> this.props.onClick(i)}
       />
     );
-  }
-  handleClick(i) {
-    const squares = [...this.props.squares];
-    if (this.calculateWinner(squares) || squares[i]) return;
-    else squares[i] = this.props.xIsNext ? "X" : "O";
-    this.setState({ squares: squares, xIsNext: !this.props.xIsNext });
-  }
+  };
   render() {
     return (
       <div>
